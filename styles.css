@@ -505,6 +505,22 @@ a { text-decoration: none; }
 }
 
 @media (max-width: 520px) {
+  .hero-left::before,
+  .hero-left::after {
+    width: 60px;
+    height: 60px;
+  }
+
+  .hero-left::before {
+    top: 14px;
+    left: 14px;
+  }
+
+  .hero-left::after {
+    right: 14px;
+    bottom: 14px;
+  }
+
   .lawyer-grid {
     grid-template-columns: 1fr;
   }
