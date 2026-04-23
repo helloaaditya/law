@@ -41,6 +41,32 @@ a { text-decoration: none; }
   background: var(--green);
   display: grid;
   place-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-left::before,
+.hero-left::after {
+  content: "";
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  border-color: rgba(231, 222, 202, 0.35);
+  pointer-events: none;
+}
+
+.hero-left::before {
+  top: 28px;
+  left: 28px;
+  border-top: 1px solid rgba(231, 222, 202, 0.35);
+  border-left: 1px solid rgba(231, 222, 202, 0.35);
+}
+
+.hero-left::after {
+  right: 28px;
+  bottom: 28px;
+  border-right: 1px solid rgba(231, 222, 202, 0.35);
+  border-bottom: 1px solid rgba(231, 222, 202, 0.35);
 }
 
 .brand-wrap { text-align: center; color: #e7deca; }
@@ -60,8 +86,10 @@ a { text-decoration: none; }
 }
 
 .hero-right {
-  background: url("https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bGF3fGVufDB8fDB8fHww")
+  background:
+    url("https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bGF3fGVufDB8fDB8fHww")
     center/cover no-repeat;
+  filter: none;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -114,6 +142,7 @@ a { text-decoration: none; }
   aspect-ratio: 1 / 1;
   background-size: cover;
   background-position: center;
+  filter: none;
   margin-bottom: 8px;
 }
 
@@ -198,7 +227,7 @@ a { text-decoration: none; }
 }
 
 .site-footer {
-  background: linear-gradient(180deg, #07503e 0%, var(--green) 100%);
+  background: var(--green);
   color: #e7deca;
   padding: 16px 34px;
   font-size: 0.92rem;
@@ -281,6 +310,7 @@ a { text-decoration: none; }
   min-height: 290px;
   background-size: cover;
   background-position: center;
+  filter: none;
 }
 
 .img-a { background-image: url("https://images.unsplash.com/photo-1460472178825-e5240623afd5?auto=format&fit=crop&w=1200&q=90"); }
@@ -315,6 +345,7 @@ a { text-decoration: none; }
   background-size: cover;
   background-position: center;
   margin-bottom: 10px;
+  filter: none;
 }
 
 .pi-1 { background-image: url("https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=900&q=90"); }
@@ -409,7 +440,6 @@ a { text-decoration: none; }
 
 @media (max-width: 860px) {
   .hero,
-  .lawyer-grid,
   .service-grid,
   .split-band,
   .practice-grid,
@@ -419,9 +449,31 @@ a { text-decoration: none; }
     min-height: unset;
   }
 
+  .page-shell {
+    width: 100%;
+    margin: 0;
+  }
+
   .hero-left,
   .hero-right {
     min-height: 280px;
+  }
+
+  .hero-right {
+    padding: 18px 0;
+  }
+
+  .ribbon-links {
+    width: min(340px, 90%);
+  }
+
+  .lawyers {
+    padding: 30px 20px 32px;
+  }
+
+  .lawyer-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
   }
 
   .content {
@@ -444,5 +496,33 @@ a { text-decoration: none; }
 
   .contact-columns {
     grid-template-columns: 1fr;
+  }
+
+  .site-footer {
+    text-align: center;
+    padding: 14px 18px;
+  }
+}
+
+@media (max-width: 520px) {
+  .lawyer-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .ribbon-links a,
+  .cta-btn {
+    font-size: 0.8rem;
+    padding: 9px 10px;
+  }
+
+  .content {
+    padding: 28px 16px;
+  }
+
+  .band-text,
+  .olive-block,
+  .lawyers {
+    padding-left: 16px;
+    padding-right: 16px;
   }
 }
