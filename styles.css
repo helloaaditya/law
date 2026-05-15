@@ -33,7 +33,7 @@ a { text-decoration: none; }
 
 .hero {
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr;
+  grid-template-columns: 3fr 1fr;
   min-height: 440px;
 }
 
@@ -52,6 +52,7 @@ a { text-decoration: none; }
   justify-content: center;
   align-items: center;
   padding: 40px 20px;
+  flex-direction: column;
 }
 
 .hero-left::before,
@@ -81,41 +82,34 @@ a { text-decoration: none; }
 .brand-wrap {
   text-align: center;
   color: #e7deca;
-  max-width: 380px;
+  max-width: 520px;
 }
 
 .brand-mark {
   font-family: "Playfair Display", serif;
-  font-size: clamp(1.8rem, 2vw, 2.5rem);
-  letter-spacing: 0.05em;
-  line-height: 1.3;
+  font-size: clamp(1.6rem, 2.2vw, 2.6rem);
+  letter-spacing: 0.03em;
+  line-height: 1.28;
 }
 
 .brand-sub {
-  margin-top: 1rem;
+  margin-top: 0.9rem;
   text-transform: uppercase;
-  letter-spacing: 0.16em;
-  font-size: 0.7rem;
+  letter-spacing: 0.10em;
+  font-size: 0.72rem;
   color: #d6c79f;
-  line-height: 1.6;
+  line-height: 1.5;
 }
 
-.hero-right {
-  background-image: url("https://m.media-amazon.com/images/I/811BFtWhzvL.jpg");
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+/* Removed .hero-right (image column) — layout now uses two columns (brand + center actions) */
 
 .ribbon-links {
   width: 100%;
-  max-width: 260px;
+  max-width: none;
   display: flex;
   flex-direction: column;
   gap: 12px;
+  align-items: stretch;
 }
 
 .ribbon-links a {
@@ -124,12 +118,15 @@ a { text-decoration: none; }
   background: #ffffff;
   border: 1px solid #ffffff;
   color: #004433;
-  font-size: 0.85rem;
+  font-size: 0.95rem;
   letter-spacing: 0.04em;
   font-weight: 700;
-  padding: 12px 14px;
+  padding: 14px 16px;
   line-height: 1.2;
   transition: background-color 140ms ease;
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .ribbon-links a:hover {
@@ -519,25 +516,32 @@ a { text-decoration: none; }
   color: #6a6456;
 }
 
-.band-text p {
-  color: #5f584b;
-  margin-bottom: 10px;
+.brand-wrap {
+  text-align: center;
+  color: #e7deca;
+  width: 100%;
+  max-width: none;
+  padding: 0 24px;
 }
 
-.inline-link {
-  font-size: 0.8rem;
+.brand-mark {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(1.6rem, 3vw, 3rem);
+  letter-spacing: 0.02em;
+  line-height: 1.25;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.brand-sub {
+  margin-top: 0.9rem;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: #5b5141;
-  font-weight: 600;
-  margin-top: 4px;
+  letter-spacing: 0.10em;
+  font-size: 0.78rem;
+  color: #d6c79f;
+  line-height: 1.6;
+  width: 100%;
 }
-
-.band-image {
-  min-height: 290px;
-  background-size: cover;
-  background-position: center;
-  filter: none;
 }
 
 .img-a { background-image: url("https://images.unsplash.com/photo-1460472178825-e5240623afd5?auto=format&fit=crop&w=1200&q=90"); }
@@ -1114,35 +1118,64 @@ a { text-decoration: none; }
   .hero-left {
     padding: 28px 18px;
     min-height: 240px;
+    place-items: start; /* align content to the top-left */
   }
 
   .hero-center {
     min-height: 220px;
+    align-items: start;
+    padding-left: 18px;
+    padding-right: 18px;
   }
 
   .hero-right {
     min-height: 240px;
   }
 
+  /* Left-align brand text on small screens for equal/consistent layout */
+  .brand-wrap {
+    max-width: 100%;
+    width: 100%;
+    padding-left: 12px;
+    padding-right: 12px;
+    text-align: left;
+  }
+
   .brand-mark {
     font-size: 1.3rem;
-    letter-spacing: 0.03em;
-    line-height: 1.3;
-    padding-left: 16px;
-    padding-right: 16px;
+    letter-spacing: 0.02em;
+    line-height: 1.25;
+    padding: 0;
+    text-align: left;
   }
 
   .brand-sub {
-    margin-top: 0.8rem;
-    font-size: 0.65rem;
-    letter-spacing: 0.12em;
+    margin-top: 0.6rem;
+    font-size: 0.68rem;
+    letter-spacing: 0.08em;
     line-height: 1.4;
-    padding-left: 16px;
-    padding-right: 16px;
+    padding: 0;
+    text-align: left;
+  }
+  /* Center buttons on mobile while keeping brand text left-aligned */
+  .ribbon-links {
+    max-width: 320px;
+    width: 100%;
+    gap: 10px;
+    align-items: center;
+    margin: 12px 0;
+    margin-left: auto;
+    margin-right: auto;
   }
 
-  .brand-wrap {
-    max-width: 300px;
+  .ribbon-links a {
+    text-align: center;
+    padding-left: 16px;
+    padding-right: 16px;
+    width: 100%;
+    max-width: 320px;
+    display: block;
+    box-sizing: border-box;
   }
 
   .lawyer-grid {
