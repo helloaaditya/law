@@ -1234,6 +1234,13 @@ a { text-decoration: none; }
     padding-right: 16px;
   }
 
+  /* Remove decorative band images on small screens to avoid large empty gaps */
+  .band-image {
+    display: none !important;
+    min-height: 0 !important;
+    height: 0 !important;
+  }
+
   .practice-grid {
     grid-template-columns: 1fr;
     gap: 12px;
