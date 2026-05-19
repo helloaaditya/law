@@ -85,6 +85,13 @@ a { text-decoration: none; }
   max-width: 520px;
 }
 
+.site-logo {
+  display: block;
+  margin: 0 auto 12px;
+  width: 120px;
+  height: auto;
+}
+
 .brand-mark {
   font-family: "Playfair Display", serif;
   font-size: clamp(1.6rem, 2.2vw, 2.6rem);

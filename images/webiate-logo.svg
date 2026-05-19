@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Simple, lightweight SVG logo placeholder for Webiate -->
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="120" viewBox="0 0 400 120" role="img" aria-label="Webiate logo">
+  <defs>
+    <linearGradient id="g" x1="0" x2="1">
+      <stop offset="0" stop-color="#0a2c1c" />
+      <stop offset="1" stop-color="#a58846" />
+    </linearGradient>
+  </defs>
+  <rect width="100%" height="100%" fill="none" />
+  <g transform="translate(12,12)">
+    <text x="12" y="46" font-family="Inter, Arial, sans-serif" font-weight="600" font-size="34" fill="#241f15">Webiate</text>
+    <text x="12" y="76" font-family="Inter, Arial, sans-serif" font-size="12" fill="#5f584b">Legal · Governance · Compliance</text>
+  </g>
+</svg>
